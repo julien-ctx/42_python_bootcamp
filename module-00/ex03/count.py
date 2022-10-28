@@ -1,4 +1,5 @@
 import string
+import sys
 
 def text_analyzer(s = None):
 	'''
@@ -15,3 +16,8 @@ def text_analyzer(s = None):
 	print("-", sum(1 for c in s if c in string.punctuation), "punctuation mark(s)")
 	print("-", sum(1 for c in s if c.isspace()), "space(s)")
 
+if (__name__ == "__main__"):
+	if len(sys.argv) != 2:
+		print("Error: please provide one argument")
+	else:
+		text_analyzer(sys.argv[1])

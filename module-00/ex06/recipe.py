@@ -64,9 +64,7 @@ def add_recipe():
 		single_ing = input()
 		if not single_ing and ingredients:
 			break
-		if not single_ing:
-			continue;
-		else:
+		if single_ing:
 			ingredients.append(single_ing)
 	meal = ''	
 	while not meal:

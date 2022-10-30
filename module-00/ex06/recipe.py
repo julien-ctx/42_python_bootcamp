@@ -16,7 +16,7 @@ cookbook = {
 				},
 }
 
-def check_int(s):
+def is_int(s):
     if s[0] in ('-', '+'):
         return s[1:].isdigit()
     return s.isdigit()
@@ -73,7 +73,7 @@ def add_recipe():
 	while not time:
 		time = input("Enter a preparation time: ")
 		if time:
-			if check_int(time):
+			if is_int(time):
 				if int(time) < 0:
 					print("Please enter a non negative integer")
 					time = ''
@@ -94,7 +94,7 @@ if __name__ == "__main__":
 		while not option:
 			option = input("\nPlease select an option:\n>> ")
 			if option:
-				if not check_int(option):
+				if not is_int(option):
 					print("Please enter an integer value")
 					option = ''
 		if int(option) == 1:

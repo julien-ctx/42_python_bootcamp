@@ -1,6 +1,6 @@
 import sys
 
-def check_int(s):
+def is_int(s):
     if s[0] in ('-', '+'):
         return s[1:].isdigit()
     return s.isdigit()
@@ -8,7 +8,7 @@ def check_int(s):
 if len(sys.argv) == 1:
 	exit(1)
 assert len(sys.argv) == 2, "more than one argument are provided"
-assert check_int(sys.argv[1]), "argument is not an integer"
+assert is_int(sys.argv[1]), "argument is not an integer"
 val = int(sys.argv[1])
 if not val:
 	print("I'm Zero.")

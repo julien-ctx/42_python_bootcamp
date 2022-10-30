@@ -1,7 +1,7 @@
 import sys
 import decimal
 
-def check_int(s):
+def is_int(s):
     if s[0] in ('-', '+'):
         return s[1:].isdigit()
     return s.isdigit()
@@ -11,7 +11,7 @@ if __name__ == "__main__":
 		print("Usage: python operations.py <number1> <number2>\nExample:\n\tpython operations.py 10 3")
 	else:
 		assert len(sys.argv) == 3, "too many arguments"
-		assert check_int(sys.argv[1]) and check_int(sys.argv[2]), "only integers"
+		assert is_int(sys.argv[1]) and is_int(sys.argv[2]), "only integers"
 		print("Sum:", int(sys.argv[1]) + int(sys.argv[2]), sep='\t\t')
 		print("Difference:", int(sys.argv[1]) - int(sys.argv[2]), sep='\t')
 		print("Product:", int(sys.argv[1]) * int(sys.argv[2]), sep='\t')

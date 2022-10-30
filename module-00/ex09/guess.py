@@ -1,6 +1,6 @@
 import random
 
-def check_int(s):
+def is_int(s):
     if s[0] in ('-', '+'):
         return s[1:].isdigit()
     return s.isdigit()
@@ -19,7 +19,7 @@ if __name__ == "__main__":
 			if usr_input == 'exit':
 				print("Goodbye!")
 				exit(1)
-			if check_int(usr_input):
+			if is_int(usr_input):
 				if int(usr_input) > 99 or int(usr_input) < 1:
 					print("Your number is out of range!")
 					usr_input = ''

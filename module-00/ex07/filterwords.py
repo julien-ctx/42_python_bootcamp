@@ -1,7 +1,7 @@
 import sys
 import string
 
-def check_int(s):
+def is_int(s):
     if s[0] in ('-', '+'):
         return s[1:].isdigit()
     return s.isdigit()
@@ -22,7 +22,7 @@ def without_punc(s):
 if __name__ == "__main__":
 	if len(sys.argv) != 3:
 		print("Please use a correct format: python3 filterwords.py [string] [integer]")
-	elif not check_int(sys.argv[2]):
+	elif not is_int(sys.argv[2]):
 		print("Error: second argument needs to be an integer")
 	else:
 		if int(sys.argv[2]) < 0:

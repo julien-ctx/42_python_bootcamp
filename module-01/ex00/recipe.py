@@ -32,6 +32,12 @@ class Recipe:
 		txt += 'recipe_type="' + self.recipe_type+ '")'
 		return txt
 
+	def getType(self):
+		return self.recipe_type
+
+	def getName(self):
+		return self.name
+
 if __name__ == "__main__":
 	tourte = Recipe("Tourte", 2, 40, ["Pomme de terre", "Creme", "Pate"], "Greasy but tasty", "lunch")
 	to_print = str(tourte)

@@ -33,5 +33,19 @@ class Vector:
 			print("Error: dot product cannot be executed if shapes are not the same")
 			return None
 
+	def T(self):
+		lst = []
+		if self.shape[0] == 1:
+			for item in self.values[0]:
+				tmp = []
+				tmp.append(item)
+				lst.append(tmp)
+		else:
+			tmp = []
+			for item in self.values:
+				tmp.append(item[0])
+			lst.append(tmp)
+		return lst
+
 	def getShape(self):
 		return self.shape

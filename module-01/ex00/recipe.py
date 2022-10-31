@@ -23,7 +23,9 @@ class Recipe:
 		self.recipe_type = recipe_type
 		
 	def __str__(self):
-		txt = 'Recipe(name="' + self.name + '", cooking_lvl=' + str(self.cooking_lvl)
+		txt = 'Recipe(name="' + self.name
+		txt += '", cooking_lvl=' + str(self.cooking_lvl)
+		txt += ', cooking_time=' + str(self.cooking_time)
 		txt += ', ingredients=["'
 		txt += '", "'.join(self.ingredients)
 		txt += '"], '

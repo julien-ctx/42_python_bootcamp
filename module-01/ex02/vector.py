@@ -2,21 +2,31 @@
 
 class Vector:
 	def __init__(self, values):
-		if not all(isinstance(elem, list) for elem in values):
+		if isinstance(values, int):
+			self.values = [[x * 1.0] for x in range(0, values)]
+			self.shape = (values, 1)
+		elif isinstance(values, tuple):
+			if values[0] >= values[1]:
+				print("Error: please enter a valid range format.")
+				exit(1)
+			self.values = [[x * 1.0] for x in range(values[0], values[1])]
+			self.shape = (values[1] - values[0], 1)
+		elif all(isinstance(elem, list) for elem in values):
+			if len(values) == 1:
+				if len(values[0]) < 2:
+					print("Error: several float values are needed in the list")
+					exit(1)
+				self.shape = (1, len(values[0]))
+			else:
+				for elem in values:
+					if len(elem) != 1:
+						print("Error: only one float value is allowed in the list")
+						exit(1)
+				self.shape = (len(values), 1)
+			self.values = values
+		else:
 			print("Error: please enter values in a correct format.")
 			exit(1)
-		if len(values) == 1:
-			if len(values[0]) < 2:
-				print("Error: several float values are needed in the list")
-				exit(1)
-			self.shape = (1, len(values[0]))
-		else:
-			for elem in values:
-				if len(elem) != 1:
-					print("Error: only one float value is allowed in the list")
-					exit(1)
-			self.shape = (len(values), 1)
-		self.values = values
 
 	# Operator overloadings
 
@@ -86,6 +96,14 @@ class Vector:
 			else:
 				return Vector([[x[0] / nb] for x in self.values])
 
+	def __rtruediv__(self, nb):
+		raise NotImplementedError("Division of a scalar by a Vector is not defined here.")
+	
+	def __str__(self):
+		return str(self.values)
+
+	def __repr__(self):
+		return str(self.values)
 
 	def dot(self, vec):
 		if not isinstance(vec, Vector):

@@ -1,7 +1,9 @@
 from vector import Vector
 
 if __name__ == "__main__":
-	Test = Vector([[1.3, 2.9, 3.0]])
-	print(Test.T())
-	Test2 = Vector([[4.0], [5.7], [6.0]])
-	print (Test.dot(Test2))
+	v1 = Vector([[1.0], [1.0], [3.0]])
+	v2 = Vector([[4.0], [1.0], [6.0]])
+	# v3 = v2 * v1
+	# print(str(v3.values))
+	v3 = v2 / v1
+	print(str(v3.values))

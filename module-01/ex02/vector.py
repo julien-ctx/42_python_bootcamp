@@ -1,5 +1,3 @@
-#https://www.reddit.com/r/learnpython/comments/3cvgpi/can_someone_explain_radd_to_me_in_simple_terms_i/
-
 class Vector:
 	def __init__(self, values):
 		if isinstance(values, int):

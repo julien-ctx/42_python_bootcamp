@@ -1,6 +1,3 @@
-#https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do
-#https://towardsdatascience.com/the-simplest-cleanest-method-for-tracking-a-for-loops-progress-and-expected-run-time-in-python-972675392b3
-
 import time
 from time import sleep
 import sys

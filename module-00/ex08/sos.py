@@ -1,4 +1,3 @@
-from re import A
 import sys
 if __name__ == "__main__":
 	if len(sys.argv) > 1:
@@ -23,11 +22,10 @@ if __name__ == "__main__":
 		s = s.replace(' ', '/')
 		s = ' '.join(s)
 		for c in s:
-			if c == ' ':
-				tmp = ' '
-			else:
-				for letter in morse_dict:
-					if c == letter:
-						tmp = morse_dict[letter]
+			tmp = c
+			for letter in morse_dict:
+				if c == letter:
+					tmp = morse_dict[letter]
+					break
 			print(tmp, end = "")
 		print()

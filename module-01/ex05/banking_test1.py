@@ -1,6 +1,6 @@
 from the_bank import Account, Bank
 
-if __name__ == "__main__":
+def banking_1():
     bank = Bank()
     bank.add(Account(
         'Smith Jane',
@@ -18,6 +18,11 @@ if __name__ == "__main__":
     ))
 
     # The transfer is supposed to fail because Jane account is corrupted
+    if bank.transfer('William John', 'Smith Jane', 545.0) is False:
+        print('Failed')
+    else:
+        print('Success')
+    bank.fix_account('Smith Jane')
     if bank.transfer('William John', 'Smith Jane', 545.0) is False:
         print('Failed')
     else:

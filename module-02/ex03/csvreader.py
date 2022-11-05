@@ -24,8 +24,9 @@ class CsvReader():
 		self.header = all_lines[0] if self.header else None
 		if self.skip_top >= len(all_lines) or self.skip_bottom >= len(all_lines):
 			print("Error: cannot slice data correctly.")
-			return None
-		self.data = all_lines[self.skip_top:len(all_lines) - self.skip_bottom]
+			self.data = None
+		else:	
+			self.data = all_lines[self.skip_top:len(all_lines) - self.skip_bottom]
 		return self
 		
 	def __exit__(self, exc_type, exc_value, exc_traceback):

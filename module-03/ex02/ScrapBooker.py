@@ -74,6 +74,12 @@ class ScrapBooker:
 		-------
 		This function should not raise any Exception.
 		"""
+		if axis not in (0, 1) or n < 1:
+			return None
+		original = array
+		for i in range(1, n):
+			array = np.concatenate((array, original), axis)
+		return array
 
 	def mosaic(self, array, dim):
 		"""
@@ -91,6 +97,18 @@ class ScrapBooker:
 		-------
 		This function should not raise any Exception.
 		"""
+		if isinstance(dim, tuple):
+			if dim[0] < 1 or dim[1] < 1:
+				return None
+			original = array
+			for i in range(1, dim[0]):
+				array = np.concatenate((array, original), 0)
+			original = array
+			for i in range(1, dim[1]):
+				array = np.concatenate((array, original), 1)
+			return array
+		else:
+			return None
 
 if __name__ == "__main__":
 	spb = ScrapBooker()
@@ -101,7 +119,13 @@ if __name__ == "__main__":
 
 	arr2 = np.array("A B C D E F G H I J K".split() * 6).reshape(-1, 11)
 	print(spb.thin(arr2, 3, 0))
-	# print()
+	print()
 
-	# arr3 = np.array([[1, 2, 3],[1, 2, 3],[1, 2, 3]])
-	# print(spb.juxtapose(arr3, 3, 1))
+	arr3 = np.array([[1, 2, 3],[1, 2, 3],[1, 2, 3]])
+	print(spb.juxtapose(arr3, 3, 1))
+	print()
+
+	arr4 = np.array([[42, 43, 44], [45, 46, 47]])
+	print(spb.mosaic(arr4, (3, 5)))
+
+# first is row, second is column

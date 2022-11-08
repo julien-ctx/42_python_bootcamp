@@ -3,10 +3,14 @@ from FileLoader import FileLoader
 class SpatioTemporalData:
 
 	def __init__(self, df):
+		if df.empty:
+			return None
 		self.df = df
 	
 	def when(self, location):
 		dates = []
+		if self.df.empty:
+			return None
 		d = self.df[self.df.City == location]
 		if d.empty:
 			return []

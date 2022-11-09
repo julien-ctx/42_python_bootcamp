@@ -16,7 +16,7 @@ class MyPlotLib:
 		fig = plt.figure()
 		df = df.drop_duplicates(subset=['Name'], keep='first')
 		for i, feature in enumerate(features):
-			ax = fig.add_subplot(1, len(features) ,i + 1)
+			ax = fig.add_subplot(1, len(features), i + 1)
 			df[feature].hist(bins=10,ax=ax)
 			ax.set_title(feature)
 		fig.tight_layout()

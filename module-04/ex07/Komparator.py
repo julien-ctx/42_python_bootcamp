@@ -26,7 +26,7 @@ class Komparator:
 			if cat not in all_cat:
 				i += 1
 				all_cat.append(cat)
-				ax = fig.add_subplot(1, 2, i)
+				ax = fig.add_subplot(1, l, i)
 				tmp = df[df[categorical_var] == cat]
 				plt.title(cat)
 				tmp.boxplot(column=numerical_var)

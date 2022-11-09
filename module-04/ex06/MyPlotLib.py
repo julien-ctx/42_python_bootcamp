@@ -31,11 +31,14 @@ class MyPlotLib:
 		pass
 
 	def box_plot(self, df, features):
+		df.boxplot(column=features)  
+		plt.show()
 		pass
 
 loader = FileLoader()
 plot = MyPlotLib()
 data = loader.load("athlete_events.csv")
 # plot.histogram(data, ["Height", "Weight"])
-plot.density(data, ["Height", "Weight"])
+# plot.density(data, ["Height", "Weight"])
 # plot.pair_plot(data, ["Weight", "Height"])
+plot.box_plot(data, ["Weight", "Height"])

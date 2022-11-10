@@ -33,7 +33,19 @@ class Komparator:
 		plt.show()
 
 	def density(self, categorical_var, numerical_var):
-		pass
+		if categorical_var == 'Name':
+			print("Using name as categorical variable is not relevant")
+			return
+		df = self.df.drop_duplicates(subset=['Name'], keep='first')
+		l = df[categorical_var].nunique()
+		all_cat = []
+		for cat in df[categorical_var]:
+			if cat not in all_cat:
+				all_cat.append(cat)
+				tmp = df[df[categorical_var] == cat]
+				tmp[numerical_var].plot.density(label=cat)
+				plt.legend()
+		plt.show()
 
 	def compare_histograms(self, categorical_var, numerical_var):
 		pass
@@ -41,4 +53,5 @@ class Komparator:
 loader = FileLoader()
 data = loader.load("athlete_events.csv")
 komp = Komparator(data)
-komp.compare_box_plots('Sex', 'Height')
+# komp.compare_box_plots('Sex', 'Height')
+komp.density('Sex', 'Weight')
